@@ -11,7 +11,7 @@ Requirements:
 Installation
 ============
 
-* Add require ```"neiron/layout": "dev-master"``` to composer.json in your project
+* Add require ```"alt/layout": "dev-master"``` to composer.json in your project
 and install.
 
 * Add "Layout" to application config.
