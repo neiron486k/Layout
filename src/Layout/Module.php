@@ -3,6 +3,7 @@ namespace Layout;
 
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
+use Zend\Mvc\MvcEvent;
 
 /**
  * Class Module
@@ -18,8 +19,13 @@ class Module implements BootstrapListenerInterface
      */
     public function onBootstrap(EventInterface $e)
     {
-        $e->getApplication()->getEventManager()
-            ->getSharedManager()->attach(
+        $eventManager = $e->getApplication()->getEventManager();
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, function($e) {
+            $result = $e->getResult();
+            $result->setTerminal(true);
+        });
+
+        $eventManager->getSharedManager()->attach(
                 'Zend\Mvc\Controller\AbstractActionController',
                 'dispatch',
                 function($e) {
