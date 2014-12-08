@@ -1,27 +1,26 @@
 {
     "name":         "alt/layout",
-    "description":  "layout module",
+    "description":  "layout module for switch layouts between modules ",
     "type":         "library",
-    "license":      "BSD-3-Clause",
+    "license":      "MIT",
     "homepage":     "https://github.com/neiron486k/Layout.git",
     "keywords": ["zf2", "layout", "module"],
     "authors": [
         {
-            "name":      "Alt Team",
-            "email":     "altteam@gmail.com",
-            "role":      "developers"
+            "name":      "Astafiev Alexey",
+            "email":     "efsneiron@gmail.com",
+            "role":      "Developer"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.13"
     },
     "autoload": {
-        "psr-0": {
-            "Layout\\": "src/"
-        }
-    },
-    "classmap": [
-        "./Module.php"
-    ]
+        "psr-4": {
+            "Layout\\": "src/Layout"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
 }
